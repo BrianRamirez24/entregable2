@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
-const dbroute= "mongodb+srv://brian:1234@arp-entregable-so7mn.mongodb.net/entregable?retryWrites=true&w=majority";
+const ENVIRONMENT = process.env.ENVIRONMENT || "dev";
 
-mongoose.connect(dbroute,
-                { useNewUrlParser: true },
-                (err)=>{
-                    if(!err){
-                        console.log("success");
-                    }
-                });
+const config = require("../config/config.json")[ENVIRONMENT];
+
+mongoose
+        .connect(...config)
+        .then(()=>console.log("sucess"))
+        .catch(err=> console.log({DBError:err}));
