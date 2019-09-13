@@ -1,0 +1,9 @@
+{
+	"dev": [
+		"mongodb+srv://brian:1234@arp-entregable-so7mn.mongodb.net/entregable?retryWrites=true&w=majority",
+
+		{
+			"useNewUrlParser": true
+		}
+	]
+}
